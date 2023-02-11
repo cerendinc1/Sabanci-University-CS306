@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>User Insertion Form</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .header{
+                position: fixed;
+                width: 100%;
+                top: 0;
+                right: 0;
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                background: transparent;
+                padding: 28px 12%;
+                transition: all .50s ease;
+                text-decoration-style: none;
+            }
+            .navbar{
+                margin: 0 auto;
+                display: flex;
+            }
+            .navbar a{
+                color: #c2dff3;
+                font-size: 1.4rem;
+                font-weight: 500;
+                padding: 5px 0;
+                margin: 0px 30px;
+                transition: all .50s ease;
+                text-decoration: none;
+
+            }
+            .navbar a:hover{
+                color: #f359d1;
+
+            }
+            .navbar a.active{
+                color: #f359d1;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <ul class="navbar">
+                <a href="./user_insertion.html" class="active">New User</a>
+                <a href="./homepage.php">Home Page</a>
+                <a href="./delete_user.html">Delete User</a>
+                <a href="./user_select.html">Search User</a>
+                <a href="http://localhost:3000/create">Support</a>
+                <a href="./friend.php">Add Friends</a>
+            </ul>
+        </header>
+        <div class="center">
+            <h1>New User</h1>
+            <form action="insertuser.php" method="post" style="height: 26rem">
+                <div class="txt_field">
+                    <input type="text" id="user_name" name="user_name">
+                    <span></span>
+                    <label>User Name</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" id="user_email" name="user_email">
+                    <span></span>
+                    <label>User Email</label>
+                </div>
+                <div class="txt_field">
+                    <input type="password" id="login_password" name="login_password">
+                    <span></span>
+                    <label>Login Password</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" id="login_name" name="login_name">
+                    <span></span>
+                    <label>Login Name</label>
+                </div>
+                <div class="txt_field">
+                    <input type="text" id="biography" name="biography">
+                    <span></span>
+                    <label>Biography</label>
+                </div>
+                <div class="txt_field">
+                    <input type="number" id="age" name="age">
+                    <span></span>
+                    <label>Age</label>
+                </div>
+
+                <input type="submit" value="Submit"> 
+            </form>
+        </div>
+    </body>
+
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Support Conversation</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-4">
+                    <div class="card border-primary">
+                        <div class="card-header">
+                            Create new ticket
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row mb-2">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <label>Subject:</label>
+                                    <input type="text" class="form-control" id="subject">
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-2">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <label>Name:</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                            </div>
+
+                            <div class="row mb-2">
+                                <div class="col-lg-10 offset-lg-1">
+                                    <label>Message:</label>
+                                    <textarea style="resize: none;" rows="6" class="form-control" id="message"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-lg-10 offset-lg-1">
+                                   <button id="sendBtn" class="btn btn-primary col-12">Create</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(() => {
+            const BASE = 'http://localhost:3000'
+
+            $('#sendBtn').click(() => {
+                const subject = $('#subject').val();
+                const name = $('#name').val();
+                const message = $('#message').val();
+
+                $.post(`${BASE}/create`, {subject, name, message}, data => {
+                    window.location.href = `${BASE}/conversation/${data.id}`;
+                });
+            });
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</html>
